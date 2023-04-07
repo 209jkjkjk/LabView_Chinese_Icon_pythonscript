@@ -7,19 +7,24 @@ class TextConfig:
         self.multispacing = 0
         self.textxy = (0, 0)
         self.fontSource = ""
+        self.fontSize = 10
 
+# 丁卯点阵像素字体
 DinkieConfig = TextConfig()
 DinkieConfig.multixy = (1, -1)
 DinkieConfig.multispacing = 0
 DinkieConfig.textxy = (32, 30)
 DinkieConfig.fontSource = "./fonts/DinkieBitmap-9pxDemo.ttf"
+DinkieConfig.fontSize = 10
 
-
-ZfullConfig = TextConfig
+# 正体点阵
+ZfullConfig = TextConfig()
 ZfullConfig.multixy = (1, 0)
 ZfullConfig.multispacing = -1
 ZfullConfig.textxy = (31, 30)
 ZfullConfig.fontSource = "./fonts/Zfull-GB.ttf"
+ZfullConfig.fontSize = 10
+
 
 
 
@@ -44,7 +49,7 @@ def watermark(iconTemplateSource, deviceName, funcText, config: TextConfig):
 
     # 添加文字
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font=config.fontSource, size=10)
+    font = ImageFont.truetype(font=config.fontSource, size=config.fontSize)
     draw.multiline_text(config.multixy, text=deviceText, font=font, stroke_width=0, spacing=config.multispacing, fill=(239, 175, 74))
     draw.text(config.textxy, anchor="rs", text=funcText, align="right", font=font, stroke_width=0, fill=(236, 82, 35))
 
@@ -55,6 +60,6 @@ def watermark(iconTemplateSource, deviceName, funcText, config: TextConfig):
 
 
 if __name__ == '__main__':
-    watermark("./模板.png", "气死我了", "干嘛", DinkieConfig)
+    watermark("./模板.png", "可调电源", "读额V", DinkieConfig)
 
 
