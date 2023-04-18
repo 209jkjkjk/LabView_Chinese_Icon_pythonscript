@@ -1,5 +1,4 @@
-# LabView_Chinese_Icon_pythonscript
-生成32*32像素的labview子VI ICON
-
 ## 效果预览
 ![image](预览图.png)
+## 注意事项
+丁卯点阵体为盗版完整版，使用需授权
